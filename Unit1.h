@@ -16,30 +16,26 @@ __published:	// IDE-managed Components
         TShape *tlo;
         TImage *b;
         TTimer *pilkaTimer;
-        TImage *p;
-        TTimer *lewo;
-        TTimer *prawo;
-        TImage *Image1;
-        TImage *Image2;
-        TImage *Image3;
-        TImage *Image4;
-        TImage *Image5;
-        TImage *Image6;
-        TImage *Image7;
-        TImage *Image8;
-        TImage *Image9;
-        TImage *Image10;
-        TImage *Image11;
-        TImage *Image12;
-        TButton *Button1;
+        TImage *gracz1;
+        TTimer *gracz1_lewo;
+        TTimer *gracz1_prawo;
+        TButton *NastepnaRundaPrzycisk;
+        TImage *gracz2;
+        TTimer *gracz2_lewo;
+        TTimer *gracz2_prawo;
+        TStaticText *PunktInfo;
+        TStaticText *Wynik;
+        TStaticText *iloscOdbicText;
         void __fastcall pilkaTimerTimer(TObject *Sender);
-        void __fastcall lewoTimer(TObject *Sender);
-        void __fastcall prawoTimer(TObject *Sender);
+        void __fastcall gracz1_lewoTimer(TObject *Sender);
+        void __fastcall gracz1_prawoTimer(TObject *Sender);
+        void __fastcall gracz2_lewoTimer(TObject *Sender);
+        void __fastcall gracz2_prawoTimer(TObject *Sender);
         void __fastcall FormKeyDown(TObject *Sender, WORD &Key,
           TShiftState Shift);
         void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
           TShiftState Shift);
-        void __fastcall Button1Click(TObject *Sender);
+        void __fastcall NastepnaRundaPrzyciskClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);
