@@ -46,8 +46,9 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
         Wynik->Visible = true;
         iloscOdbicText->Caption = "Ilosc odbic: " + IntToStr(iloscOdbic);
         iloscOdbicText->Visible = true;
-        pilkaTimer->Enabled = false;
         NastepnaRundaPrzycisk->Visible = true;
+        NowaGraPrzycisk->Visible = true;
+        pilkaTimer->Enabled = false;
     }else if(b->Top <= gracz2->Top - gracz2->Height+15)
     {
         punkty_gracza1 += 1;
@@ -59,6 +60,7 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
         iloscOdbicText->Caption = "Ilosc odbic: " + IntToStr(iloscOdbic);
         iloscOdbicText->Visible = true;
         NastepnaRundaPrzycisk->Visible = true;
+        NowaGraPrzycisk->Visible = true;
         pilkaTimer->Enabled = false;
     }
 }
@@ -115,6 +117,29 @@ void __fastcall TForm1::NastepnaRundaPrzyciskClick(TObject *Sender)
         iloscOdbicText->Visible = false;
         pilkaTimer->Enabled = true;
         NastepnaRundaPrzycisk->Visible = false;
+        NowaGraPrzycisk->Visible = false;
+}
+//---------------------------------------------------------------------------
+
+void __fastcall TForm1::NowaGraPrzyciskClick(TObject *Sender)
+{
+    if(Application->MessageBox("Na pewnno zacz¹c now¹ grê?", "PotwierdŸ", MB_YESNOCANCEL | MB_ICONQUESTION) == IDYES)
+    {
+        b->Left = 128;
+        b->Top = 336;
+        x = -x;
+        y = -y;
+        iloscOdbic = 0;
+        b->Visible = true;
+        PunktInfo->Visible = false;
+        Wynik->Visible = false;
+        iloscOdbicText->Visible = false;
+        pilkaTimer->Enabled = true;
+        NastepnaRundaPrzycisk->Visible = false;
+        NowaGraPrzycisk->Visible = false;
+        punkty_gracza1 = 0;
+        punkty_gracza2 = 0;
+    }
 }
 //---------------------------------------------------------------------------
 

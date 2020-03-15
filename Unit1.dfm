@@ -589,6 +589,16 @@ object Form1: TForm1
     TabOrder = 3
     Visible = False
   end
+  object NowaGraPrzycisk: TButton
+    Left = 320
+    Top = 488
+    Width = 209
+    Height = 81
+    Caption = 'Nowa gra'
+    TabOrder = 4
+    Visible = False
+    OnClick = NowaGraPrzyciskClick
+  end
   object pilkaTimer: TTimer
     Interval = 30
     OnTimer = pilkaTimerTimer
