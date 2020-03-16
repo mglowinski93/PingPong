@@ -134,7 +134,7 @@ object Form1: TForm1
     Transparent = True
   end
   object gracz1: TImage
-    Left = 24
+    Left = 8
     Top = 312
     Width = 20
     Height = 100
@@ -333,7 +333,7 @@ object Form1: TForm1
     Transparent = True
   end
   object gracz2: TImage
-    Left = 792
+    Left = 832
     Top = 312
     Width = 20
     Height = 100

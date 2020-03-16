@@ -31,7 +31,7 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
     }
 
 
-    if(b->Top > gracz1->Top - b->Width/2 && b->Top < gracz1->Top + gracz1->Height + b->Width/2 && b->Left - b->Width < gracz1->Left ||
+    if(b->Top > gracz1->Top - b->Width/2 && b->Top < gracz1->Top + gracz1->Height + b->Width/2 && b->Left - gracz1->Width < gracz1->Left ||
        b->Top > gracz2->Top - b->Width/2 && b->Top < gracz2->Top + gracz2->Height + b->Width/2 && b->Left + b->Width > gracz2->Left)
     {
        iloscOdbic++;
@@ -106,8 +106,8 @@ void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
 
 void __fastcall TForm1::NastepnaRundaPrzyciskClick(TObject *Sender)
 {
-        b->Left = 128;
-        b->Top = 336;
+        b->Left = 400;
+        b->Top = 200;
         x = -x;
         y = -y;
         iloscOdbic = 0;
@@ -125,8 +125,8 @@ void __fastcall TForm1::NowaGraPrzyciskClick(TObject *Sender)
 {
     if(Application->MessageBox("Na pewnno zacz¹c now¹ grê?", "PotwierdŸ", MB_YESNOCANCEL | MB_ICONQUESTION) == IDYES)
     {
-        b->Left = 128;
-        b->Top = 336;
+        b->Left = 400;
+        b->Top = 200;
         x = -x;
         y = -y;
         iloscOdbic = 0;
