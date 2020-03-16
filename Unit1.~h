@@ -26,6 +26,7 @@ __published:	// IDE-managed Components
         TStaticText *PunktInfo;
         TStaticText *Wynik;
         TStaticText *iloscOdbicText;
+        TButton *NowaGraPrzycisk;
         void __fastcall pilkaTimerTimer(TObject *Sender);
         void __fastcall gracz1_lewoTimer(TObject *Sender);
         void __fastcall gracz1_prawoTimer(TObject *Sender);
@@ -36,6 +37,7 @@ __published:	// IDE-managed Components
         void __fastcall FormKeyUp(TObject *Sender, WORD &Key,
           TShiftState Shift);
         void __fastcall NastepnaRundaPrzyciskClick(TObject *Sender);
+        void __fastcall NowaGraPrzyciskClick(TObject *Sender);
 private:	// User declarations
 public:		// User declarations
         __fastcall TForm1(TComponent* Owner);

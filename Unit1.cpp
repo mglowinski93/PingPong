@@ -16,7 +16,7 @@ int iloscOdbic = 0;
 __fastcall TForm1::TForm1(TComponent* Owner)
         : TForm(Owner)
 {
-    ShowMessage("Witam w grze PingPong.\nLewy gracz steruje wciskaj¹c A oraz Z.\nPrawy gracz steruje wciskaj¹c strza³ki do w lewo oraz prawo.");
+    ShowMessage("Witam w grze PingPong.\nLewy gracz steruje wciskaj¹c A oraz Z.\nPrawy gracz steruje wciskaj¹c strza³ki do w góre oraz dó³.");
 }
 //---------------------------------------------------------------------------
 
@@ -25,18 +25,18 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
     b->Left += x;
     b->Top += y;
 
-    if(b->Left-5 <= tlo->Left || b->Left+b -> Width+5 >= tlo->Width)
+    if(b->Top-5 <= tlo->Top || b->Top + b->Width+5 >= tlo->Height)
     {
-        x = -x;
+        y = -y;
     }
 
 
-    if(b-> Left > gracz1->Left - b->Width/2 && b->Left < gracz1->Left + gracz1->Width && b->Top + b->Height > gracz1->Top ||
-    b-> Left > gracz2->Left - b->Width/2 && b->Left < gracz2->Left + gracz2->Width && b->Top - b->Height < gracz2->Top)
+    if(b->Top > gracz1->Top - b->Width/2 && b->Top < gracz1->Top + gracz1->Height + b->Width/2 && b->Left - b->Width < gracz1->Left ||
+       b->Top > gracz2->Top - b->Width/2 && b->Top < gracz2->Top + gracz2->Height + b->Width/2 && b->Left + b->Width > gracz2->Left)
     {
        iloscOdbic++;
-       y = -y;
-    }else if(b->Top >= gracz1->Top + gracz1->Height+15)
+       x = -x;
+    }else if(b->Left <= gracz1->Left - b->Width/2)
     {
         punkty_gracza2 += 1;
         b->Visible = false;
@@ -49,7 +49,7 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
         NastepnaRundaPrzycisk->Visible = true;
         NowaGraPrzycisk->Visible = true;
         pilkaTimer->Enabled = false;
-    }else if(b->Top <= gracz2->Top - gracz2->Height+15)
+    }else if(b->Left >= gracz2->Left + b->Width/2)
     {
         punkty_gracza1 += 1;
         b->Visible = false;
@@ -67,40 +67,40 @@ void __fastcall TForm1::pilkaTimerTimer(TObject *Sender)
 //---------------------------------------------------------------------------
 void __fastcall TForm1::gracz1_lewoTimer(TObject *Sender)
 {
-    if(gracz1->Left > 10) gracz1->Left -=10;
+    if(gracz1->Top > 10) gracz1->Top -=10;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::gracz1_prawoTimer(TObject *Sender)
 {
-  if(gracz1->Left + gracz1->Width < tlo->Width - 10) gracz1->Left += 10;
+  if(gracz1->Top + gracz1->Height < tlo->Height - 10) gracz1->Top += 10;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::gracz2_lewoTimer(TObject *Sender)
 {
-    if(gracz2->Left > 10) gracz2->Left -=10;
+    if(gracz2->Top > 10) gracz2->Top -=10;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::gracz2_prawoTimer(TObject *Sender)
 {
-  if(gracz2->Left + gracz2->Width < tlo->Width - 10) gracz2->Left += 10;
+  if(gracz2->Top + gracz2->Height < tlo->Height - 10) gracz2->Top += 10;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormKeyDown(TObject *Sender, WORD &Key,
       TShiftState Shift)
 {
-    if ( Key == VK_LEFT ) gracz1_lewo->Enabled = true;
-    if ( Key == VK_RIGHT ) gracz1_prawo->Enabled = true;
-    if ( Key == 'A' ) gracz2_lewo->Enabled = true;
-    if ( Key == 'Z' ) gracz2_prawo->Enabled = true;
+    if ( Key == 'A' ) gracz1_lewo->Enabled = true;
+    if ( Key == 'Z' ) gracz1_prawo->Enabled = true;
+    if ( Key == VK_UP ) gracz2_lewo->Enabled = true;
+    if ( Key == VK_DOWN ) gracz2_prawo->Enabled = true;
 }
 //---------------------------------------------------------------------------
 void __fastcall TForm1::FormKeyUp(TObject *Sender, WORD &Key,
       TShiftState Shift)
 {
-    if ( Key == VK_LEFT ) gracz1_lewo->Enabled = false;
-    if ( Key == VK_RIGHT ) gracz1_prawo->Enabled = false;
-    if ( Key == 'A' ) gracz2_lewo->Enabled = false;
-    if ( Key == 'Z' ) gracz2_prawo->Enabled = false;
+    if ( Key == 'A' ) gracz1_lewo->Enabled = false;
+    if ( Key == 'Z' ) gracz1_prawo->Enabled = false;
+    if ( Key == VK_UP ) gracz2_lewo->Enabled = false;
+    if ( Key == VK_DOWN ) gracz2_prawo->Enabled = false;
 }
 //---------------------------------------------------------------------------
 
